@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map[]>
+<Map srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over" font-directory="./fonts" background-color="#c4dff6" maximum-extent="13358338.89, -1373578.68, 14471078.5, -725133.78">
+
+<FontSet name="fontset-0">
+  <Font face-name="Open Sans Semibold"/>
+  <Font face-name="DejaVu Sans Book"/>
+  <Font face-name="unifont Medium"/>
+</FontSet>
+
+
+<Style name="land-high" filter-mode="first">
+  <Rule>
+    <PolygonSymbolizer fill="#fcfbe7" gamma="0.75" />
+    <Filter>([iso3] = 'TLS')</Filter>
+  </Rule>
+  <Rule>
+    <PolygonSymbolizer fill="#E5E5E5" gamma="0.75" />
+    <Filter>([iso3] != 'TLS')</Filter>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>10000000</MaxScaleDenominator>
+    <MinScaleDenominator>400000</MinScaleDenominator>
+    <TextSymbolizer fill="#99937a" halo-fill="#ffffff" halo-radius="1.5" fontset-name="fontset-0" size="11" wrap-width="30" ><![CDATA[[name]]]></TextSymbolizer>
+    <Filter>([iso3] != 'TLS')</Filter>
+  </Rule>
+</Style>
+<Layer name="land-high"
+  status="on"
+  srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over">
+    <StyleName>land-high</StyleName>
+    <Datasource>
+       <Parameter name="dbname"><![CDATA[gis]]></Parameter>
+       <Parameter name="geometry_field"><![CDATA[way]]></Parameter>
+       <Parameter name="id"><![CDATA[admin]]></Parameter>
+       <Parameter name="key_field"><![CDATA[]]></Parameter>
+       <Parameter name="project"><![CDATA[osm-bright-imposm]]></Parameter>
+       <Parameter name="table"><![CDATA[( SELECT way, name, iso3 FROM world_borders ) AS data]]></Parameter>
+       <Parameter name="type"><![CDATA[postgis]]></Parameter>
+    </Datasource>
+  </Layer>
+</Map>
