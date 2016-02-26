@@ -4,6 +4,6 @@ tilestache:
   build: .
   container_name: ts
   ports:
-    - "8080:8080"
+    - "8084:8080"
   links:
     - gis
