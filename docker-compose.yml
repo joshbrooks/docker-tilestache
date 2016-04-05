@@ -1,9 +1,0 @@
-gis:
-  build: ../postgis
-tilestache:
-  build: .
-  container_name: ts
-  ports:
-    - "8084:8080"
-  links:
-    - gis
