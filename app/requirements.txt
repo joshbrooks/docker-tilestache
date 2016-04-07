@@ -1,0 +1,12 @@
+pip
+mapnik
+gunicorn
+tilestache
+shapely
+pillow
+modestmaps
+simplejson
+werkzeug
+pylibmc
+uwsgi
+
