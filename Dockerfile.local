@@ -67,6 +67,7 @@ COPY 	pip /tmp/pip/
 RUN 	ls -l /tmp/pip
 COPY 	app/requirements.txt /tmp/requirements.txt 
 RUN	pip install --index-url=file:///tmp/pip/simple/ -r /tmp/requirements.txt
+RUN	rm -rf tmp/pip
 
 RUN sed -i 's/Image.fromstring/Image.frombytes/' /usr/local/lib/python2.7/dist-packages/TileStache/Mapnik.py
 RUN sed -i 's/Image.fromstring/Image.frombytes/' /usr/local/lib/python2.7/dist-packages/TileStache/Pixels.py
